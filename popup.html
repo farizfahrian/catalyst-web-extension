@@ -1,0 +1,71 @@
+<!-- popup.html -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creative Content Catalyst</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <img src="assets/Catalyst.png" alt="Creative Content Catalyst" class="logo">
+      <h1>Creative Content Catalyst</h1>
+    </header>
+    
+    <div class="input-section">
+      <textarea id="prompt-input" placeholder="Masukkan kata kunci, topik, atau konteks di sini..."></textarea>
+      
+      <div class="options-row">
+        <div class="content-type">
+          <label for="content-select">Jenis Konten:</label>
+          <select id="content-select">
+            <option value="social">Caption Media Sosial</option>
+            <option value="blog">Intro Blog</option>
+            <option value="ad">Iklan</option>
+            <option value="product">Deskripsi Produk</option>
+          </select>
+        </div>
+        
+        <div class="tone-style">
+          <label for="tone-select">Tone:</label>
+          <select id="tone-select">
+            <option value="professional">Professional</option>
+            <option value="casual">Santai</option>
+            <option value="persuasive">Persuasif</option>
+            <option value="informative">Informatif</option>
+          </select>
+        </div>
+      </div>
+      
+      <button id="generate-btn" class="primary-btn">Generate Konten</button>
+    </div>
+    
+    <div class="results-section" id="results-container">
+      <div class="result-header">
+        <h2>Hasil</h2>
+        <button id="copy-btn" class="icon-btn">
+          <img src="images/copy-icon.png" alt="Copy" title="Copy to clipboard">
+        </button>
+      </div>
+      <div id="loading-spinner" class="hidden">
+        <div class="spinner"></div>
+        <p>Sedang membuat konten...</p>
+      </div>
+      <div id="result-content"></div>
+    </div>
+    
+    <div class="action-buttons">
+      <button id="insert-btn" class="action-btn">Tambahkan ke Halaman</button>
+      <button id="settings-btn" class="action-btn">Pengaturan</button>
+    </div>
+    
+    <footer>
+      <p>© 2025 Creative Content Catalyst</p>
+    </footer>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+{
+    "manifest_version": 3,
+    "name": "Creative Content Catalyst",
+    "version": "1.0",
+    "description": "AI-powered content generation for Indonesian creatives and marketers",
+    "permissions": ["activeTab", "storage", "contextMenus"],
+    "host_permissions": [
+      "https://integrate.api.nvidia.com/*"
+    ],
+    "content_security_policy": {
+      "extension_pages": "script-src 'self'; object-src 'self'"
+    },
+    "options_ui": {
+  "page": "options.html",
+  "open_in_tab": false
+},
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "16": "assets/icon-16.png",
+        "48": "assets/icon-48.png",
+        "128": "assets/icon-128.png"
+      }
+    },
+    "icons": {
+      "16": "assets/icon-16.png",
+      "48": "assets/icon-48.png",
+      "128": "assets/icon-128.png"
+    },
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content.js"],
+        "css": ["content.css"]
+      }
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "web_accessible_resources": [
+      {
+        "resources": ["assets/*"],
+        "matches": ["<all_urls>"]
+      }
+    ]
+  }

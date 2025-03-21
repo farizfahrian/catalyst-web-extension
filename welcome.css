@@ -1,0 +1,251 @@
+/* welcome.css */
+:root {
+    --primary-color: #FF5722;
+    --secondary-color: #2196F3;
+    --accent-color: #FFC107;
+    --text-color: #333333;
+    --light-bg: #F5F5F5;
+    --border-radius: 8px;
+    --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-color);
+    background-color: #f9f9f9;
+    line-height: 1.6;
+  }
+  
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+  }
+  
+  header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .logo {
+    width: 120px;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  
+  h1 {
+    font-size: 36px;
+    color: var(--primary-color);
+    margin-bottom: 8px;
+  }
+  
+  .tagline {
+    font-size: 18px;
+    color: #666;
+    font-weight: 300;
+  }
+  
+  h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #444;
+    text-align: center;
+  }
+  
+  h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: #333;
+  }
+  
+  p {
+    margin-bottom: 16px;
+  }
+  
+  .intro-section {
+    background-color: white;
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  
+  .intro-section p {
+    font-size: 17px;
+  }
+  
+  .features-section {
+    margin-bottom: 40px;
+  }
+  
+  .feature-card {
+    display: flex;
+    background-color: white;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin-bottom: 20px;
+  }
+  
+  .feature-icon {
+    flex: 0 0 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .feature-icon img {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .feature-content {
+    flex: 1;
+    padding-left: 20px;
+  }
+  
+  .setup-section {
+    background-color: white;
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin-bottom: 40px;
+  }
+  
+  .setup-section ol {
+    list-style-position: inside;
+    margin-left: 0;
+    padding-left: 0;
+  }
+  
+  .setup-section li {
+    margin-bottom: 24px;
+  }
+  
+  .button, .primary-button {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    border: none;
+    margin-top: 8px;
+  }
+  
+  .button {
+    background-color: var(--secondary-color);
+    color: white;
+  }
+  
+  .button:hover {
+    background-color: #1976D2;
+    transform: translateY(-2px);
+  }
+  
+  .primary-button {
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 18px;
+    padding: 12px 30px;
+  }
+  
+  .primary-button:hover {
+    background-color: #E64A19;
+    transform: translateY(-2px);
+  }
+  
+  .tutorial-section {
+    margin-bottom: 40px;
+  }
+  
+  .tutorial-step {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin-bottom: 20px;
+  }
+  
+  .tutorial-image {
+    flex: 0 0 200px;
+  }
+  
+  .tutorial-image img {
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid #eee;
+  }
+  
+  .tutorial-content {
+    flex: 1;
+    padding-left: 20px;
+  }
+  
+  .cta-section {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 40px;
+    border-radius: var(--border-radius);
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .cta-section h2 {
+    color: white;
+    margin-bottom: 20px;
+  }
+  
+  .cta-section .primary-button {
+    background-color: white;
+    color: var(--secondary-color);
+  }
+  
+  .cta-section .primary-button:hover {
+    background-color: #f5f5f5;
+  }
+  
+  footer {
+    text-align: center;
+    color: #777;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+  }
+  
+  footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+  
+  footer a:hover {
+    text-decoration: underline;
+  }
+  
+  @media (max-width: 768px) {
+    .feature-card, .tutorial-step {
+      flex-direction: column;
+    }
+    
+    .feature-icon, .tutorial-image {
+      margin-bottom: 16px;
+    }
+    
+    .feature-content, .tutorial-content {
+      padding-left: 0;
+    }
+    
+    .tutorial-image {
+      flex: 0 0 auto;
+      width: 100%;
+    }
+  }

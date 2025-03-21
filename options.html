@@ -1,0 +1,77 @@
+<!-- options.html -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creative Content Catalyst - Settings</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <img src="images/logo.png" alt="Creative Content Catalyst" class="logo">
+      <h1>Creative Content Catalyst Settings</h1>
+    </header>
+    
+    <div class="settings-section">
+      <h2>API Configuration</h2>
+      
+      <div class="form-group">
+        <label for="api-key">API Key</label>
+        <div class="api-key-input">
+          <input type="password" id="api-key" placeholder="Enter your NVIDIA AI API key">
+          <button id="toggle-visibility" title="Show/Hide API Key">
+            <img src="images/eye-icon.png" alt="Toggle Visibility">
+          </button>
+        </div>
+        <small>Your API key for accessing the NVIDIA AI API.</small>
+      </div>
+      
+      <button id="save-settings" class="primary-btn">Save Settings</button>
+      
+      <div id="status-message" class="status-message"></div>
+    </div>
+    
+    <div class="settings-section">
+      <h2>Usage Options</h2>
+      
+      <div class="form-group">
+        <label for="float-button">Floating Button</label>
+        <div class="toggle-switch">
+          <input type="checkbox" id="float-button" checked>
+          <span class="slider"></span>
+        </div>
+        <small>Show floating button on websites for quick access</small>
+      </div>
+      
+      <div class="form-group">
+        <label for="context-menu">Context Menu</label>
+        <div class="toggle-switch">
+          <input type="checkbox" id="context-menu" checked>
+          <span class="slider"></span>
+        </div>
+        <small>Enable right-click menu option for selected text</small>
+      </div>
+    </div>
+    
+    <div class="settings-section">
+      <h2>Language Preferences</h2>
+      
+      <div class="form-group">
+        <label for="primary-language">Primary Language</label>
+        <select id="primary-language">
+          <option value="id" selected>Bahasa Indonesia</option>
+          <option value="en">English</option>
+        </select>
+      </div>
+    </div>
+    
+    <footer>
+      <p>© 2025 Creative Content Catalyst</p>
+    </footer>
+  </div>
+  
+  <script src="options.js"></script>
+</body>
+</html>
