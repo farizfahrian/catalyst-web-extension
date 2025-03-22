@@ -1,90 +1,130 @@
-/* content.css */
+:root {
+  /* Popup Variables */
+  --popup-bg: #fff;
+  --popup-border-radius: 8px;
+  --popup-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  --popup-width: 400px;
+  --popup-max-width: 90vw;
+
+  /* Backdrop Variables */
+  --backdrop-bg: rgba(0, 0, 0, 0.5);
+
+  /* Quick Access Variables */
+  --quick-access-bg: #fff;
+  --quick-access-border-radius: 6px;
+  --quick-access-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  --quick-access-width: 220px;
+  --quick-access-padding: 12px;
+
+  /* Quick Access Item */
+  --quick-access-item-font-size: 14px;
+  --quick-access-item-color: #333;
+  --quick-access-item-padding: 8px 12px;
+  --quick-access-item-margin-bottom: 4px;
+  --quick-access-item-hover-bg: #f5f5f5;
+
+  /* Notification Variables */
+  --notification-bg: #FF5722;
+  --notification-color: #fff;
+  --notification-padding: 12px 16px;
+  --notification-border-radius: 8px;
+  --notification-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+
+  /* Typography */
+  --font-family: 'Segoe UI', sans-serif;
+  --font-size: 14px;
+}
+
+/* Popup Styles */
 .cc-catalyst-popup {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    z-index: 10000;
-    width: 400px;
-    max-width: 90vw;
-    display: none;
-  }
-  
-  .cc-catalyst-popup.active {
-    display: block;
-    animation: fadeIn 0.3s ease-out;
-  }
-  
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-  
-  .cc-catalyst-backdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 9999;
-    display: none;
-  }
-  
-  .cc-catalyst-backdrop.active {
-    display: block;
-  }
-  
-  .cc-catalyst-quick-access {
-    position: absolute;
-    background-color: white;
-    border-radius: 6px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    z-index: 9998;
-    width: 220px;
-    padding: 12px;
-  }
-  
-  .cc-catalyst-quick-access-item {
-    display: block;
-    width: 100%;
-    text-align: left;
-    padding: 8px 12px;
-    margin-bottom: 4px;
-    background: none;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-family: 'Segoe UI', sans-serif;
-    font-size: 14px;
-    color: #333;
-    transition: background-color 0.2s;
-  }
-  
-  .cc-catalyst-quick-access-item:hover {
-    background-color: #f5f5f5;
-  }
-  
-  .cc-catalyst-notification {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #FF5722;
-    color: white;
-    padding: 12px 16px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    font-family: 'Segoe UI', sans-serif;
-    font-size: 14px;
-    z-index: 10000;
-    max-width: 300px;
-    animation: slideUp 0.3s ease-out;
-  }
-  
-  @keyframes slideUp {
-    from { transform: translateY(20px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-  }
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--popup-bg);
+  border-radius: var(--popup-border-radius);
+  box-shadow: var(--popup-shadow);
+  z-index: 10000;
+  width: var(--popup-width);
+  max-width: var(--popup-max-width);
+  display: none;
+}
+
+.cc-catalyst-popup.active {
+  display: block;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Backdrop Styles */
+.cc-catalyst-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--backdrop-bg);
+  z-index: 9999;
+  display: none;
+}
+
+.cc-catalyst-backdrop.active {
+  display: block;
+}
+
+/* Quick Access Styles */
+.cc-catalyst-quick-access {
+  position: absolute;
+  background-color: var(--quick-access-bg);
+  border-radius: var(--quick-access-border-radius);
+  box-shadow: var(--quick-access-shadow);
+  z-index: 9998;
+  width: var(--quick-access-width);
+  padding: var(--quick-access-padding);
+}
+
+.cc-catalyst-quick-access-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: var(--quick-access-item-padding);
+  margin-bottom: var(--quick-access-item-margin-bottom);
+  background: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: var(--font-family);
+  font-size: var(--quick-access-item-font-size);
+  color: var(--quick-access-item-color);
+  transition: background-color 0.2s;
+}
+
+.cc-catalyst-quick-access-item:hover {
+  background-color: var(--quick-access-item-hover-bg);
+}
+
+/* Notification Styles */
+.cc-catalyst-notification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--notification-bg);
+  color: var(--notification-color);
+  padding: var(--notification-padding);
+  border-radius: var(--notification-border-radius);
+  box-shadow: var(--notification-shadow);
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  z-index: 10000;
+  max-width: 300px;
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}

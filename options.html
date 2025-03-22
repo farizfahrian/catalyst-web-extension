@@ -1,10 +1,9 @@
-<!-- options.html -->
+<!-- options.html - Improved version -->
 <!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="dicoding:email" content="farizfahrian53@gmail.com">
   <title>Creative Content Catalyst - Settings</title>
   <link rel="stylesheet" href="options.css">
 </head>
@@ -17,59 +16,70 @@
     
     <div class="settings-section">
       <h2>API Configuration</h2>
-      
       <div class="form-group">
         <label for="api-key">API Key</label>
         <div class="api-key-input">
           <input type="password" id="api-key" placeholder="Enter your NVIDIA AI API key">
-          <button id="toggle-visibility" title="Show/Hide API Key">
+          <button id="toggle-visibility" title="Show API Key">
             <img src="assets/eye.svg" alt="Toggle Visibility">
           </button>
         </div>
         <small>Your API key for accessing the NVIDIA AI API.</small>
       </div>
-      
-      <button id="save-settings" class="primary-btn">Save Settings</button>
-      
-      <div id="status-message" class="status-message"></div>
     </div>
-    
+
     <div class="settings-section">
       <h2>Usage Options</h2>
-      
-      <div class="form-group">
-        <label for="float-button">Floating Button</label>
-        <div class="toggle-switch">
-          <input type="checkbox" id="float-button" checked>
-          <span class="slider"></span>
+      <div class="form-group toggle-form-group">
+        <div>
+          <p>Floating Button</p>
+          <small>Show floating button on websites for quick access</small>
         </div>
-        <small>Show floating button on websites for quick access</small>
+        <label>
+          <div class="toggle-switch">
+            <input type="checkbox" id="float-button">
+            <span class="slider"></span>
+          </div>
+        </label>
       </div>
       
-      <div class="form-group">
-        <label for="context-menu">Context Menu</label>
-        <div class="toggle-switch">
-          <input type="checkbox" id="context-menu" checked>
-          <span class="slider"></span>
+      <div class="form-group toggle-form-group">
+        <div>
+          <p>Context Menu</p>
+          <small>Enable right-click menu option for selected text</small>
         </div>
-        <small>Enable right-click menu option for selected text</small>
+        <label>
+          <div class="toggle-switch">
+            <input type="checkbox" id="context-menu">
+            <span class="slider"></span>
+          </div>
+        </label>
       </div>
     </div>
-    
+
     <div class="settings-section">
       <h2>Language Preferences</h2>
-      
       <div class="form-group">
         <label for="primary-language">Primary Language</label>
         <select id="primary-language">
           <option value="id" selected>Bahasa Indonesia</option>
           <option value="en">English</option>
+          <option value="zh">中文 (Chinese)</option>
+          <option value="es">Español (Spanish)</option>
+          <option value="ja">日本語 (Japanese)</option>
         </select>
+        <small>Language used for extension UI and generated content</small>
       </div>
     </div>
-    
+
+    <!-- Save Button Section -->
+    <div class="settings-section save-section">
+      <div id="status-message" class="status-message"></div>
+      <button id="save-settings" class="primary-btn save-btn">Save All Settings</button>
+    </div>
+
     <footer>
-      <p>© 2025 Creative Content Catalyst</p>
+      <p>© 2025 Creative Content Catalyst v1.2.0</p>
     </footer>
   </div>
   

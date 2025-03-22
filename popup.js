@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const generateBtn = document.getElementById('generate-btn');
   const resultContent = document.getElementById('result-content');
   const copyBtn = document.getElementById('copy-btn');
-  const insertBtn = document.getElementById('insert-btn');
   const settingsBtn = document.getElementById('settings-btn');
   const loadingSpinner = document.getElementById('loading-spinner');
   const historyList = document.getElementById('history-list');
@@ -45,9 +44,16 @@ document.addEventListener('DOMContentLoaded', function() {
   let currentLanguage = 'id';
 
   // Load language preference
-  chrome.storage.sync.get('primaryLanguage', function(data) {
+  chrome.storage.sync.get(['primaryLanguage'], (data) => {
     currentLanguage = data.primaryLanguage || 'id';
   });
+
+  // Listen for language updates
+  chrome.runtime.onMessage.addListener((request) => {
+    if (request.action === 'updateLanguage') {
+        currentLanguage = request.language;
+    }
+  }); 
 
   // Modify preparePrompt function
   function preparePrompt(prompt, contentType, tone) {
@@ -218,16 +224,6 @@ document.addEventListener('DOMContentLoaded', function() {
       setTimeout(function() {
         copyBtn.innerHTML = '<img src="assets/copy.svg" alt="Copy" title="Copy to clipboard">';
       }, 1500);
-    });
-  });
-  
-  // Insert content button click handler
-  insertBtn.addEventListener('click', function() {
-    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-      chrome.tabs.sendMessage(tabs[0].id, {
-        action: 'insertContent',
-        content: resultContent.textContent
-      });
     });
   });
   
