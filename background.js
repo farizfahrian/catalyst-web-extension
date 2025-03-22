@@ -1,4 +1,3 @@
-// background.js
 // Initialize context menu items
 chrome.runtime.onInstalled.addListener(function() {
     // Create context menu for text selection
@@ -34,6 +33,22 @@ chrome.runtime.onInstalled.addListener(function() {
   chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     if (request.action === 'openPopup') {
       chrome.action.openPopup();
+    }
+    return true;
+  });
+
+  // Add this message listener for context menu updates
+  chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+    if (request.action === 'updateContextMenu') {
+      if (request.enabled) {
+        chrome.contextMenus.create({
+          id: 'generateFromSelection',
+          title: 'Generate with Content Catalyst',
+          contexts: ['selection']
+        });
+      } else {
+        chrome.contextMenus.remove('generateFromSelection');
+      }
     }
     return true;
   });

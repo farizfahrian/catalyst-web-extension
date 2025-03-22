@@ -174,3 +174,46 @@
   .hidden {
     display: none;
   }
+
+  .history-section {
+    margin-top: 16px;
+    border-top: 1px solid #ddd;
+    padding-top: 16px;
+  }
+  
+  .history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+  
+  .history-list {
+    max-height: 200px;
+    overflow-y: auto;
+  }
+  
+  .history-item {
+    padding: 8px;
+    margin-bottom: 4px;
+    background: var(--light-bg);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  
+  .history-item:hover {
+    background: #eee;
+  }
+
+  .history-prompt {
+    font-weight: bold;
+  }
+
+  .history-content {
+    font-style: italic;
+  }
+
+  .history-date {
+    color: #777;
+  }

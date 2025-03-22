@@ -17,6 +17,17 @@
         element.isContentEditable
       );
     }
+
+    // Add this message listener at the top
+    chrome.runtime.onMessage.addListener(function(request) {
+      if (request.action === 'updateFloatingButton') {
+        const button = document.querySelector('.cc-catalyst-button');
+        if (button) {
+          button.style.display = request.enabled ? 'block' : 'none';
+        }
+      }
+      return true;
+    });
     
     // Listen for messages from the popup
     chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {

@@ -3,7 +3,7 @@
     "name": "Creative Content Catalyst",
     "version": "1.0",
     "description": "AI-powered content generation for Indonesian creatives and marketers",
-    "permissions": ["activeTab", "storage", "contextMenus"],
+    "permissions": ["activeTab", "storage", "contextMenus", "scripting"],
     "host_permissions": [
       "https://integrate.api.nvidia.com/*"
     ],

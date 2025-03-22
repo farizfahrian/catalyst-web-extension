@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="dicoding:email" content="farizfahrian53@gmail.com">
   <title>Creative Content Catalyst</title>
   <link rel="stylesheet" href="popup.css">
 </head>
@@ -46,7 +47,7 @@
       <div class="result-header">
         <h2>Hasil</h2>
         <button id="copy-btn" class="icon-btn">
-          <img src="images/copy-icon.png" alt="Copy" title="Copy to clipboard">
+          <img src="assets/copy.svg" alt="Copy" title="Copy to clipboard">
         </button>
       </div>
       <div id="loading-spinner" class="hidden">
@@ -54,6 +55,18 @@
         <p>Sedang membuat konten...</p>
       </div>
       <div id="result-content"></div>
+    </div>
+
+    <div class="history-section">
+      <div class="history-header">
+        <h2>Riwayat</h2>
+        <button id="clear-history" class="icon-btn">
+          <img src="assets/trash.svg" alt="Clear History">
+        </button>
+      </div>
+      <div id="history-list" class="history-list">
+        <p id="no-history" class="hidden">Tidak ada riwayat</p>
+      </div>
     </div>
     
     <div class="action-buttons">

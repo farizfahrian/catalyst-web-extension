@@ -16,10 +16,10 @@ document.addEventListener('DOMContentLoaded', function() {
     toggleVisibilityBtn.addEventListener('click', function() {
       if (apiKeyInput.type === 'password') {
         apiKeyInput.type = 'text';
-        toggleVisibilityBtn.querySelector('img').src = 'images/eye-off-icon.png';
+        toggleVisibilityBtn.querySelector('img').src = 'assets/eye-off.svg';
       } else {
         apiKeyInput.type = 'password';
-        toggleVisibilityBtn.querySelector('img').src = 'images/eye-icon.png';
+        toggleVisibilityBtn.querySelector('img').src = 'assets/eye.svg';
       }
     });
     // Save settings button click handler
