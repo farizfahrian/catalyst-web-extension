@@ -120,6 +120,31 @@ p {
   margin-bottom: 16px;
 }
 
+/* Add to welcome.css */
+.language-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.lang-btn {
+  padding: 5px 10px;
+  border: 1px solid var(--border-color);
+  background: var(--light-bg);
+  cursor: pointer;
+  margin-left: 5px;
+  border-radius: 4px;
+}
+
+.lang-btn.active {
+  background: var(--primary-color);
+  color: white;
+}
+
+[data-i18n] {
+  transition: opacity 0.3s ease;
+}
+
 /* Intro Section */
 .intro-section {
   background-color: #fff;

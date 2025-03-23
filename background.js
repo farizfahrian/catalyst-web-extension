@@ -1,45 +1,36 @@
-// Fixed background.js
 let contextMenuCreated = false;
 
-// Function to manage context menu
-function updateContextMenu(enabled) {
-  if (enabled && !contextMenuCreated) {
-    chrome.contextMenus.create({
-      id: 'generateFromSelection',
-      title: 'Generate with Content Catalyst',
-      contexts: ['selection']
-    }, () => {
-      if (chrome.runtime.lastError) {
-        console.error("Error creating context menu:", chrome.runtime.lastError);
-        return;
-      }
+// Unified context menu management
+async function updateContextMenu(enabled) {
+  try {
+    // Always remove existing menu first
+    await chrome.contextMenus.remove('generateFromSelection');
+    contextMenuCreated = false;
+  } catch (error) {
+    // Menu didn't exist - this is expected
+  }
+
+  if (enabled) {
+    try {
+      await chrome.contextMenus.create({
+        id: 'generateFromSelection',
+        title: 'Generate with Content Catalyst',
+        contexts: ['selection']
+      });
       contextMenuCreated = true;
-    });
-  } else if (!enabled && contextMenuCreated) {
-    chrome.contextMenus.remove('generateFromSelection', () => {
-      if (chrome.runtime.lastError) {
-        console.error("Error removing context menu:", chrome.runtime.lastError);
-        return;
-      }
-      contextMenuCreated = false;
-    });
+    } catch (error) {
+      console.error("Error creating context menu:", error.message);
+    }
   }
 }
 
-// Handle initial setup
-chrome.runtime.onInstalled.addListener((details) => {
-  // Initialize context menu based on stored settings
-  chrome.storage.sync.get({
-    enableContextMenu: true
-  }, (data) => {
-    updateContextMenu(data.enableContextMenu);
-  });
+// Improved installation handler
+chrome.runtime.onInstalled.addListener(async (details) => {
+  const data = await chrome.storage.sync.get({ enableContextMenu: true });
+  await updateContextMenu(data.enableContextMenu);
   
-  // Show welcome page on fresh install
   if (details.reason === 'install') {
-    chrome.tabs.create({
-      url: 'welcome.html'
-    });
+    chrome.tabs.create({ url: 'welcome.html' });
   }
 });
 

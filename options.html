@@ -1,39 +1,41 @@
-<!-- options.html - Improved version -->
+<!-- options.html -->
 <!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Creative Content Catalyst - Settings</title>
+  <title data-i18n="headerTitle">Creative Content Catalyst - Settings</title>
   <link rel="stylesheet" href="options.css">
 </head>
 <body>
   <div class="container">
     <header>
       <img src="assets/Catalyst.png" alt="Creative Content Catalyst" class="logo">
-      <h1>Creative Content Catalyst Settings</h1>
+      <h1 data-i18n="headerTitle">Creative Content Catalyst Settings</h1>
     </header>
     
     <div class="settings-section">
-      <h2>API Configuration</h2>
+      <h2 data-i18n="apiConfigurationTitle">API Configuration</h2>
       <div class="form-group">
-        <label for="api-key">API Key</label>
+        <label for="api-key" data-i18n="apiKeyLabel">API Key</label>
         <div class="api-key-input">
-          <input type="password" id="api-key" placeholder="Enter your NVIDIA AI API key">
-          <button id="toggle-visibility" title="Show API Key">
-            <img src="assets/eye.svg" alt="Toggle Visibility">
+          <input type="password" id="api-key" data-i18n-placeholder="apiKeyPlaceholder" placeholder="Enter your NVIDIA AI API key">
+          <button id="toggle-visibility" data-i18n-title="showApiKeyTitle" title="Show API Key">
+            <img src="assets/eye.svg" data-i18n-alt="toggleVisibilityAlt" alt="Toggle Visibility">
           </button>
         </div>
-        <small>Your API key for accessing the NVIDIA AI API.</small>
+        <small data-i18n="apiKeyHelpText">Your API key for accessing the NVIDIA AI API key. Don't have API key? 
+          <a href="https://build.nvidia.com/deepseek-ai/deepseek-r1" target="_blank" data-i18n="getApiKeyLink">Get the key here</a>
+        </small>
       </div>
     </div>
 
     <div class="settings-section">
-      <h2>Usage Options</h2>
+      <h2 data-i18n="usageOptionsTitle">Usage Options</h2>
       <div class="form-group toggle-form-group">
         <div>
-          <p>Floating Button</p>
-          <small>Show floating button on websites for quick access</small>
+          <p data-i18n="floatingButtonLabel">Floating Button</p>
+          <small data-i18n="floatingButtonDesc">Show floating button on websites for quick access</small>
         </div>
         <label>
           <div class="toggle-switch">
@@ -45,8 +47,8 @@
       
       <div class="form-group toggle-form-group">
         <div>
-          <p>Context Menu</p>
-          <small>Enable right-click menu option for selected text</small>
+          <p data-i18n="contextMenuLabel">Context Menu</p>
+          <small data-i18n="contextMenuDesc">Enable right-click menu option for selected text</small>
         </div>
         <label>
           <div class="toggle-switch">
@@ -58,28 +60,25 @@
     </div>
 
     <div class="settings-section">
-      <h2>Language Preferences</h2>
+      <h2 data-i18n="languagePreferencesTitle">Language Preferences</h2>
       <div class="form-group">
-        <label for="primary-language">Primary Language</label>
+        <label for="primary-language" data-i18n="primaryLanguageLabel">Primary Language</label>
         <select id="primary-language">
-          <option value="id" selected>Bahasa Indonesia</option>
-          <option value="en">English</option>
-          <option value="zh">中文 (Chinese)</option>
-          <option value="es">Español (Spanish)</option>
-          <option value="ja">日本語 (Japanese)</option>
+          <option value="id" selected data-i18n="indonesianLanguage">Bahasa Indonesia</option>
+          <option value="en" data-i18n="englishLanguage">English</option>
         </select>
-        <small>Language used for extension UI and generated content</small>
+        <small data-i18n="primaryLanguageDesc">Language used for extension UI and generated content</small>
       </div>
     </div>
 
     <!-- Save Button Section -->
     <div class="settings-section save-section">
+      <button id="save-settings" class="primary-btn save-btn" data-i18n="saveButtonText">Save All Settings</button>
       <div id="status-message" class="status-message"></div>
-      <button id="save-settings" class="primary-btn save-btn">Save All Settings</button>
     </div>
 
     <footer>
-      <p>© 2025 Creative Content Catalyst v1.2.0</p>
+      <p data-i18n="footerText">© 2025 Creative Content Catalyst v1.2.0</p>
     </footer>
   </div>
   

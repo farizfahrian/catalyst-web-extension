@@ -1,27 +1,39 @@
 /* popup.css */
+/* popup.css */
 :root {
-  --primary-color: #FF5722;
-  --primary-light: #FF8A65;
-  --primary-dark: #E64A19;
-  --secondary-color: #2196F3;
-  --secondary-light: #64B5F6;
-  --secondary-dark: #1976D2;
-  --accent-color: #FFC107;
-  --text-color: #333333;
-  --text-light: #757575;
-  --light-bg: #F5F5F5;
-  --border-color: #E0E0E0;
-  --error-color: #F44336;
-  --success-color: #4CAF50;
+  /* Primary Color (slate 500 as accent) */
+  --primary-color: #64748B;
+  --primary-light: #94A3B8;
+  --primary-dark: #475569;
+
+  /* Monochrome Slate Palette */
+  --slate-50:  #F8FAFC;
+  --slate-100: #F1F5F9;
+  --slate-200: #E2E8F0;
+  --slate-300: #CBD5E1;
+  --slate-400: #94A3B8;
+  --slate-500: #64748B;
+  --slate-600: #475569;
+  --slate-700: #334155;
+  --slate-800: #1E293B;
+  --slate-900: #0F172A;
+
+  /* Secondary, Accent, and Utility Colors */
+  --secondary-color: var(--slate-600);
+  --secondary-light: var(--slate-400);
+  --secondary-dark: var(--slate-700);
+  --accent-color: var(--primary-color);
+  --text-color: var(--slate-900);
+  --text-light: var(--slate-600);
+  --light-bg: var(--slate-100);
+  --border-color: var(--slate-300);
+  --error-color: #EF4444;
+  --success-color: #22C55E;
+
+  /* UI Elements */
   --border-radius: 8px;
   --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   --transition: all 0.3s ease;
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
 body {
@@ -90,7 +102,7 @@ h1 {
 }
 
 textarea {
-  width: 100%;
+  width: 93%;
   min-height: 80px;
   padding: 12px;
   border: 1px solid var(--border-color);
@@ -104,7 +116,7 @@ textarea {
 textarea:focus {
   outline: none;
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 2px rgba(255, 87, 34, 0.2);
+  box-shadow: 0 0 0 2px var(--slate-400);
 }
 
 .options-row {
@@ -188,7 +200,7 @@ select:focus {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .result-actions {
@@ -199,6 +211,7 @@ select:focus {
 h2 {
   font-size: 16px;
   color: var(--primary-color);
+  margin: 0;
 }
 
 .icon-btn {
@@ -295,7 +308,7 @@ h2 {
 
 .history-item {
   padding: 12px;
-  margin-bottom: 8px;
+  margin: 8px 0;
   background: white;
   border-radius: var(--border-radius);
   cursor: pointer;
@@ -308,10 +321,92 @@ h2 {
   box-shadow: var(--box-shadow);
 }
 
+.toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.8);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity 0.3s ease, bottom 0.3s ease;
+  z-index: 10001;
+}
+
+.toast.show {
+  opacity: 1;
+  bottom: 40px;
+}
+
+/* Hover Toast */
+.history-item {
+  position: relative;
+  cursor: pointer;
+}
+
+.hover-toast {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 12px;
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 2;
+}
+
+.history-item:hover .hover-toast {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-4px);
+}
+
+/* Copied Animation */
+@keyframes bounce {
+  0% { transform: translateX(-50%) scale(1); }
+  50% { transform: translateX(-50%) scale(1.1); }
+  100% { transform: translateX(-50%) scale(1); }
+}
+
+.copied .hover-toast {
+  background: #4CAF50;
+  animation: bounce 0.3s ease;
+}
+
 .history-prompt {
   font-weight: bold;
   margin-bottom: 4px;
   color: var(--primary-color);
+}
+
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.history-header .delete-history {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: var(--transition);
+}
+
+.history-header .delete-history:hover {
+  background-color: var(--light-bg);
 }
 
 .history-metadata {
@@ -332,11 +427,14 @@ h2 {
   text-overflow: ellipsis;
 }
 
-.no-history {
+#clear-history {
+  color: var(--error-color);;
+}
+
+#no-history {
   text-align: center;
   padding: 12px;
   color: var(--text-light);
-  font-style: italic;
 }
 
 /* Footer */

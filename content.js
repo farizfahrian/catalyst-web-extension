@@ -50,7 +50,7 @@
       const button = document.createElement('div');
       button.innerHTML = `
         <div class="cc-catalyst-button">
-          <img src="${chrome.runtime.getURL('assets/icon-48.png')}" alt="Creative Content Catalyst">
+          <img src="${chrome.runtime.getURL('assets/Catalyst-nobg.png')}" alt="Creative Content Catalyst">
         </div>
       `;
       
@@ -63,7 +63,7 @@
           width: 48px;
           height: 48px;
           border-radius: 50%;
-          background-color: #FF5722;
+          background-color: #F8FAFC;
           box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
           cursor: pointer;
           z-index: 9999;
